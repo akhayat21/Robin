@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-
+// Column for the sales database 
     var Sales = sequelize.define("Sales", {
       SalesId: {
         type: DataTypes.INTEGER,

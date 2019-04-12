@@ -1,6 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 
-
+ // Column for the client database 
+ 
     var Client = sequelize.define("Client", {
       clientName: {
         type: DataTypes.STRING,

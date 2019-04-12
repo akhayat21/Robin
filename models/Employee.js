@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 
-
-  var Employee = sequelize.define("Contractor", {
+ // Column for the employee database 
+  var Employee = sequelize.define("Employee", {
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,20 +31,40 @@ module.exports = function(sequelize, DataTypes) {
         len: [1,200]
       }
     },
-    Weekly_hours: {
+    weeklyHours: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         len: [1,100]
       },
     },
-    Total_sales: {
+    totalSales: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
         len: [1,100]
       },
-   
+    },
+    clockIn: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1,100]
+      },
+    },
+    clockOut: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1,100]
+      },
+    },
+    startDay: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1,100]
+      },
     },
     adminAccess: {
       type: DataTypes.BOOLEAN,

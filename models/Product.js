@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-
+// Column for the product database 
     var Product = sequelize.define("Product", {
       productName: {
         type: DataTypes.STRING,
