@@ -1,7 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
 
+ // Column for the client database  that will hold the general information of the client for us to track, associate, and analyze.
 
     var Client = sequelize.define("Client", {
+        
       clientName: {
         type: DataTypes.STRING,
         allowNull: false,
