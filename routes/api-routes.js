@@ -51,5 +51,63 @@ module.exports = function(app) {
       });
     }
   });
+  //Route for getting client info
+  app.get("/api/Clients", function(req, res) {
+    //findAll returns client entries
+    db.Clients.findAll({}).then(function(dbClients) {
+      res.json(dbClients);
+      }); 
+    });
+    //POST route for saving new client
+  app.post("/api/Clients", function(req, res) {
+    db.Clients.create({
+      clientName: req.body.clientName,
+      contactLastname: req.body.contactLastname,
+      contactFirstname: req.body.contactFirstname,
+      phoneNumber: req.body.phoneNumber,
+      addressLine: req.body.addressLine,
+      city: req.body.city,
+      state: req.body.state,
+      country: req.body.country,
+      Email: req.body.Email,
+      createdAt: req.body.createdAt,
+      updatedAt: req.body.updatedAt
+    }).then(function(dbClients) {
+      res.json(dbClients);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+  });
+
+
+
+//DELETE route for deleting Clients
+//req.params.id
+app.delete("/api/Clients/:id", function(req, res) {
+  db.Clients.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(function(dbClients) {
+    //access to Clients inside of callback
+    res.json(dbClients);
+  });
+});
+//GET route for getting all of the contractors
+app.get("/api/Contractors", function(req, res) {
+
+  db.Contractors.findAll({}).then(function 
+    (dbContractors) {
+
+      res.json(dbContractors);
+    });
+});
+
+//POST route for saving a new contractor
+app.post("/api/Contractors", function(req, res) 
+{
+//create takes an argument of an object describing the item we want to insert into our table
+})
 
 };
