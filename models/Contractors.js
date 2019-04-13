@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 
 
-  var Employee = sequelize.define("Contractor", {
+  var Contractors = sequelize.define("Contractors", {
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -51,5 +51,5 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     }
   });
-  return Employee;
+  return Contractors;
 };
