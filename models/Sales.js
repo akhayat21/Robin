@@ -1,36 +1,36 @@
 module.exports = function(sequelize, DataTypes) {
 
-
+// Column for the sales database 
     var Sales = sequelize.define("Sales", {
-      SalesId: {
+        // created a salesId for us to track a product sale and also to eventually associate salesId with other databases.
+      salesId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           len: [1,100]
         }
       },
-      ClientId: {
+        // created a clientId for us to track client's information and also to eventually associate clientId with other databases.
+
+      clientId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           len: [1,100]
         }
       },
-      SalesId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [1,100]
-        }
-      },
-      ProductId: {
+        // created a productId for us to track information and also to eventually associate productId with other databases.
+      
+      productId: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [1,200]
         }
       },
-      TransactionID: {
+        // created a pId for us to track information and also to eventually associate productId with other databases.
+
+      transactionID: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
