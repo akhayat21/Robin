@@ -10,6 +10,10 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  app.get("/manager", function(req, res) {
+    res.render("mngrview-products");
+  });
+
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {

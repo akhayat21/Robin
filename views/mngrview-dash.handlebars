@@ -1,0 +1,69 @@
+{{!-- Navbar with links--}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Robin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="features">Dashboard</a>
+            <a class="nav-item nav-link" href="products">Products</a>
+            <a class="nav-item nav-link" href="employees">Employees</a>
+            <a class="nav-item nav-link" href="salesstats">SalesStats</a>
+        </div>
+    </div>
+    <div class="navbar-nav right">
+        <a class="nav-item nav-link" href="logout">Logout</a>
+    </div>
+</nav>
+
+{{!-- manager view separated in rows/column with card for each section --}}
+{{!-- Visual of layout
+    --------------------------------{MAIN ROW}-----------------------------------
+    |------------------------------------|                         |            |
+    |                                    |                         |            |
+    |                                    |                         |   Chat     |
+    |         row with main card         |                         |            |
+    |                                    |                         |            |
+    |                                    |                         |            |
+    |------------------------------------|         MAP             |            |
+    |------------------------------------|                         |            |
+    |                                    |                         |            |
+    |                                    |                         |------------|
+    |        row with weather card       |                         |            |
+    |                                    |                         |    alerts  |
+    |                                    |                         |            |
+    |------------------------------------|                         |            |
+    -----------------------------------------------------------------------------
+ --}}
+    <div class="row">
+        <div class="col-6"  >
+            <div class="row" style="padding: 20px 5px 10px 5px;">
+                <div class="col-12">
+                    <div class="card" style="width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding: 10px 5px 20px 5px;">
+                <div class="col-12">
+                    <div class="card" style="width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <h1>map</h1>
+        </div>
+
+        <div class="col-2">
+            <h1>chat</h1>
+        </div>
+    </div>
