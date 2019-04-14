@@ -1,0 +1,19 @@
+.navbar-nav{
+    padding-left: 5%;
+}
+.right{
+    float: right;
+    padding-right: 5%;
+}
+
+.navbar{
+    padding-left: 10%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
