@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 
  // Column for the employee database 
-  var Employee = sequelize.define("Employee", {
+  var Contractor = sequelize.define("Contractor", {
     // we want to store employee general information such as firstName, lastName, email. 
     firstName: {
       type: DataTypes.STRING,
@@ -77,5 +77,5 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     }
   });
-  return Employee;
+  return Contractor;
 };
