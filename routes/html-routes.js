@@ -22,7 +22,10 @@ module.exports = function(app) {
   app.get("/manager/salestats", function(req, res) {
     res.render("./mngerview/mngrview-salestats");
   });
-
+  app.get("/contractor/salestats", function(req, res) {
+    res.render("./contrview/contractorview");
+  });
+  
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
