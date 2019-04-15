@@ -1,15 +1,15 @@
 {{!-- Navbar with links--}}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Robin</a>
+    <a class="navbar-brand" href="dash">Robin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="features">Dashboard</a>
+            <a class="nav-item nav-link" href="dash">Dashboard</a>
             <a class="nav-item nav-link" href="products">Products</a>
-            <a class="nav-item nav-link" href="employees">Employees</a>
+            <a class="nav-item nav-link" href="contractors">Employees</a>
             <a class="nav-item nav-link active" href="salesstats">SalesStats</a>
         </div>
     </div>
@@ -31,21 +31,18 @@
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>1</td>
                     <td>Client Name</td>
                     <td>Product Name</td>
                     <td>$300</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
-                    <td>2</td>
                     <td>Client Name</td>
                     <td>Product Name</td>
                     <td>$300</td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
-                    <td>3</td>
                     <td>Client Name</td>
                     <td>Product Name</td>
                     <td>$300</td>
@@ -54,8 +51,115 @@
         </table>
     </div>
     <div class="col-2">
-        <p><button type="button" class="btn btn-primary">Add Order</button></p>
-        <p><button type="button" class="btn btn-primary">Edit Order</button></p>
-        <p><button type="button" class="btn btn-primary">Remove Order</button></p>
+        <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addorder">Add Order</button></p>
+        <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editorder">Edit Order</button></p>
+        <p><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteorder">Remove Order</button></p>
     </div>
 </div>
+
+<div class="modal fade" id="addorder" tabindex="-1" role="dialog" aria-labelledby="addorder" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create a new Order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="clientname">Client Name</label>
+                        <input type="clientname" class="form-control" id="clientname">
+                    </div>
+                    <div class="form-group">
+                        <label for="productid">Product ID</label>
+                        <input type="productid" class="form-control" id="productid">
+                    </div>
+                    <div class="form-group">
+                        <label for="salenote">Note</label>
+                        <textarea class="form-control" id="salenote" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="addorder" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addorder" tabindex="-1" role="dialog" aria-labelledby="addorder" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit an Existing Order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="clientname">Order ID</label>
+                        <input type="clientname" class="form-control" id="clientname">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientname">Client Name</label>
+                        <input type="clientname" class="form-control" id="clientname">
+                    </div>
+                    <div class="form-group">
+                        <label for="productid">Product ID</label>
+                        <input type="productid" class="form-control" id="productid">
+                    </div>
+                    <div class="form-group">
+                        <label for="salenote">Note</label>
+                        <textarea class="form-control" id="salenote" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="editorder" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deleteorder" tabindex="-1" role="dialog" aria-labelledby="deleteorder" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="orderid">Order ID</label>
+                        <input type="number" class="form-control" id="orderid">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="removeorder" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#addorder").on("click",function{
+        $("#clientname").text = 
+        $("#productID").text = 
+    })
+    $("#editorder").on("click",function{
+        
+    })
+    $("#removeorder").on("click",function{
+        $("#")
+    })
+</script>
