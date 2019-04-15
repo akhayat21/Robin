@@ -29,6 +29,9 @@ app.get("/api/Contractors", function(req, res) {
     teamAssignment: req.body.teamAssignment,
     Weekly_hours: req.body.Weekly_hours,
     Total_sales: req.body.Total_sales,
+    clockIn: req.body.clockIn,
+    clockOut: req.body.clockOut,
+    startDay: req.body.startDay,
     adminAccess: req.body.adminAccess
   }).then(function(dbContractors) {
         res.json(dbContractors);
@@ -63,7 +66,10 @@ app.get("/api/Contractors", function(req, res) {
     teamAssignment: req.body.teamAssignment,
     Weekly_hours: req.body.Weekly_hours,
     Total_sales: req.body.Total_sales,
-    adminAccess: req.body.adminAccess
+    clockIn: req.body.clockIn,
+    clockOut: req.body.clockOut,
+    startDay: req.body.startDay,
+    adminAccess: req.body.adminAccess,
     }, {
       where: {
         id: req.body.id
