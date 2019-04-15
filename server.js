@@ -24,7 +24,13 @@ app.use(passport.session());
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
-// require("./routes/api-routes.js")(app);
+require("./routes/api-routes.js")(app);
+require("./routes/api/clients.js")(app);
+require("./routes/api/contractors.js")(app);
+require("./routes/api/product.js")(app);
+require("./routes/api/sales.js")(app);
+require("./routes/api/geomaps.js")(app);
+
 
 app.get('/', function (req, res) {
   res.render('./layouts/main');
