@@ -19,6 +19,21 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+
+  User.associate = function(models) {
+    // We're saying that a User should belong to an Contractors
+    // A User can't be created without an Contractor due to the foreign key constraint
+    User.belongsTo(models.Contractors, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+
+
+
+
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
