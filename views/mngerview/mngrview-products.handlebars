@@ -54,10 +54,10 @@
     </table>
   </div>
   <div class="col-2">
-    <p><button type="button" class="btn btn-primary">Add Product</button></p>
-    <p><button type="button" class="btn btn-primary">Add Stock</button></p>
-    <p><button type="button" class="btn btn-primary">Edit Product</button></p>
-    <p><button type="button" class="btn btn-primary">Delete Product</button></p>
+    <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addproduct">Add Product</button></p>
+    <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addstock">Add Stock</button></p>
+    <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editproduct">Edit Product</button></p>
+    <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteproduct">Delete Product</button></p>
   </div>
 </div>
 <div class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="addproduct" aria-hidden="true">
@@ -72,16 +72,116 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="clientname">Client Name</label>
-                        <input type="clientname" class="form-control" id="clientname">
+                        <label for="productname">Product Name</label>
+                        <input type="clientname" class="form-control" id="productname">
                     </div>
+                    <div class="form-group">
+                        <label for="productid">Product Description</label>
+                        <textarea class="form-control" id="salenote" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productquantity">Stock Quantity</label>
+                        <input type="number" class="form-control" id="productquantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="productprice">Price</label>
+                        <input type="number" class="form-control" id="productprice">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addstock" tabindex="-1" role="dialog" aria-labelledby="addstock" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
                     <div class="form-group">
                         <label for="productid">Product ID</label>
-                        <input type="productid" class="form-control" id="productid">
+                        <input type="clientname" class="form-control" id="productid">
                     </div>
                     <div class="form-group">
-                        <label for="salenote">Note</label>
+                        <label for="stockquantity">How much stock do you want to add?</label>
+                        <input type="number" class="form-control" id="stockquantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="productprice">Price</label>
+                        <input type="number" class="form-control" id="productprice">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editproduct" tabindex="-1" role="dialog" aria-labelledby="editproduct" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="productid">Product ID</label>
+                        <input type="clientname" class="form-control" id="productid">
+                    </div>
+                    <div class="form-group">
+                        <label for="productname">Product Name</label>
+                        <input type="clientname" class="form-control" id="productname">
+                    </div>
+                    <div class="form-group">
+                        <label for="productid">Product Description</label>
                         <textarea class="form-control" id="salenote" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productquantity">Stock Quantity</label>
+                        <input type="number" class="form-control" id="productquantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="productprice">Price</label>
+                        <input type="number" class="form-control" id="productprice">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="deleteproduct" tabindex="-1" role="dialog" aria-labelledby="deleteproduct" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="productid">Order ID</label>
+                        <input type="id" class="form-control" id="productid">
                     </div>
                 </form>
             </div>
