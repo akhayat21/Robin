@@ -5,12 +5,6 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="features">Dashboard</a>
-            <a class="nav-item nav-link  active" href="products">Products</a>
-            <a class="nav-item nav-link" href="employees">Employees</a>
-            <a class="nav-item nav-link" href="salesstats">SalesStats</a>
-        </div>
     </div>
     <div class="navbar-nav right">
         <a class="nav-item nav-link" href="logout">Logout</a>
@@ -19,22 +13,95 @@
 <div class="row">
     <div class="col-4">
         <div class="card">
-      <div class="card-body">
-        <p><button type="button" class="btn btn-success">Clock In</button></p>
-        <p><button type="button" class="btn btn-danger">Clock Out</button></p>
-        <p><button type="button" class="btn btn-danger">Send an Alert</button></p>
-      </div>
-    </div>
+            <div class="card-body">
+                <p><button type="button" class="btn btn-primary clockin">Clock In</button></p>
+                <p><button type="button" class="btn btn-primary clockout">Clock Out</button></p>
+                <p><button type="button" class="btn btn-success sale" data-toggle="modal"
+                        data-target="#sale">Create a Sale</button></p>
+                <p><button type="button" class="btn btn-danger sendalert" data-toggle="modal"
+                        data-target="#sendalert">Send an Alert</button></p>
+            </div>
+        </div>
     </div>
     <div class="col-4">
-      <div class="card-body">
-          hours
-      </div>
-      <div class="card-body">
-          sales
-      </div>
+        <div class="card-body">
+            hours
+        </div>
+        <div class="card-body">
+            sales
+        </div>
     </div>
     <div class="col-4">
         chat
+    </div>
+</div>
+<!-- Modal for sending an alert -->
+<div class="modal fade" id="sendalert" tabindex="-1" role="dialog" aria-labelledby="sendalert" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="Name" class="form-control" id="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Urgency</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Low</option>
+                            <option>Medium</option>
+                            <option>Critical</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="alertnote">Note</label>
+                        <textarea class="form-control" id="alertnote" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- modal for making a sale --}}
+<div class="modal fade" id="sale" tabindex="-1" role="dialog" aria-labelledby="sale" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="clientname">Client Name</label>
+                        <input type="clientname" class="form-control" id="clientname">
+                    </div>
+                    <div class="form-group">
+                        <label for="productid">Product ID</label>
+                        <input type="productid" class="form-control" id="productid">
+                    </div>
+                    <div class="form-group">
+                        <label for="salenote">Note</label>
+                        <textarea class="form-control" id="salenote" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>
