@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
 
   var Contractors = sequelize.define("Contractors", {
@@ -6,17 +6,17 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1,200]
+        len: [1, 200]
       }
     },
     lastName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1,200]
+        len: [1, 200]
       }
     },
-    email:  {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
@@ -29,15 +29,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1,200]
+        len: [1, 200]
       }
-    },  
+    },
     // This is to track the employee weekly hours that  is gather formt the clock in and clock out data.
     weeklyHours: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        len: [1,100]
+        len: [1, 100]
       },
     },
     // This is to track the total sales of the employee.
@@ -45,7 +45,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        len: [1,100]
+        len: [1, 100]
       },
     },
     // This clock in and out is  to track the employee hours so that we could add the total hours of the employee.
@@ -53,21 +53,21 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        len: [1,100]
+        len: [1, 100]
       },
     },
     clockOut: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        len: [1,100]
+        len: [1, 100]
       },
     },// This is to have a database information of the employeee start day with the company.
     startDay: {
       type: DataTypes.DATE,
       allowNull: false,
       validate: {
-        len: [1,100]
+        len: [1, 100]
       },
     },
     // This for the user to have access to our features.
@@ -76,5 +76,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
     }
   });
+
+  Contractors.associate = function (models) {
+    // Associating Contractors with user
+    // When an contractor is deleted, also delete any associated user
+    Contractors.hasMany(models.User, {
+      onDelete: "cascade"
+    });
+  };
   return Contractors;
 };
+
