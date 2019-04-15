@@ -10,10 +10,22 @@ module.exports = function(app) {
     res.render("index");
   });
 
-  app.get("/manager", function(req, res) {
-    res.render("mngrview-products");
+  app.get("/manager/dash", function(req, res) {
+    res.render("./mngerview/mngrview-dash");
   });
-
+  app.get("/manager/products", function(req, res) {
+    res.render("./mngerview/mngrview-products");
+  });
+  app.get("/manager/contractors", function(req, res) {
+    res.render("./mngerview/mngrview-contractors");
+  });
+  app.get("/manager/salestats", function(req, res) {
+    res.render("./mngerview/mngrview-salestats");
+  });
+  app.get("/contractor/salestats", function(req, res) {
+    res.render("./contrview/contractorview");
+  });
+  
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
