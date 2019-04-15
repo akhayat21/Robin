@@ -64,7 +64,7 @@ module.exports = function(sequelize, DataTypes) {
       },
     },// This is to have a database information of the employeee start day with the company.
     startDay: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATE,
       allowNull: false,
       validate: {
         len: [1,100]
