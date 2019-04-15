@@ -7,9 +7,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="features">Dashboard</a>
+      <a class="nav-item nav-link" href="dash">Dashboard</a>
       <a class="nav-item nav-link active" href="products">Products</a>
-      <a class="nav-item nav-link" href="employees">Employees</a>
+      <a class="nav-item nav-link" href="contractors">Employees</a>
       <a class="nav-item nav-link" href="salesstats">SalesStats</a>
     </div>
   </div>
@@ -59,4 +59,36 @@
     <p><button type="button" class="btn btn-primary">Edit Product</button></p>
     <p><button type="button" class="btn btn-primary">Delete Product</button></p>
   </div>
+</div>
+<div class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="addproduct" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="clientname">Client Name</label>
+                        <input type="clientname" class="form-control" id="clientname">
+                    </div>
+                    <div class="form-group">
+                        <label for="productid">Product ID</label>
+                        <input type="productid" class="form-control" id="productid">
+                    </div>
+                    <div class="form-group">
+                        <label for="salenote">Note</label>
+                        <textarea class="form-control" id="salenote" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>

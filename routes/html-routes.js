@@ -23,7 +23,7 @@ module.exports = function(app) {
   app.get("/manager/contractors", function(req, res) {
     res.render("./mngerview/mngrview-contractors");
   });
-  app.get("/manager/salestats", function(req, res) {
+  app.get("/manager/salesstats", function(req, res) {
     res.render("./mngerview/mngerview-salestats");
   });
   app.get("/contractor", function(req, res) {
