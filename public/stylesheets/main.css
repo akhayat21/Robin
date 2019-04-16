@@ -16,4 +16,9 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-
+#features-card {
+    width: 50%;
+    position: fixed; /* or absolute */
+  top: 10%;
+  left: 25%
+}
