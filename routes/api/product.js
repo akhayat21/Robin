@@ -51,19 +51,21 @@ app.get("api/Products", function(req, res) {
     });
   
   });
-  // PUT route for updating Products. We can get the updated Products data from req.body
-  app.put("/api/Products", function(req, res) {
+
+
+  // PUT route for adding stock to Products. We can get the updated Products data from req.body
+  app.put("/api/ProductStock", function(req, res) {
   
   // Update takes in an object describing the properties we want to update, and
   // we use where to describe which objects we want to update
   db.Product.update({
-      productName: req.body.productName,
-      productLine: req.body.productLine,
-      productVendor: req.body.productVendor,
-      productDescription: req.body.productDescription,
+      //productName: req.body.productName,
+      //productLine: req.body.productLine,
+      //productVendor: req.body.productVendor,
+      //productDescription: req.body.productDescription,
       quantityinStock: req.body.quantityinStock,
-      wholesalePrice: req.body.wholesalePrice,
-      msrp: req.body.msrp
+      //wholesalePrice: req.body.wholesalePrice,
+      //msrp: req.body.msrp
   }, {
     where: {
       id: req.body.id
@@ -76,4 +78,30 @@ app.get("api/Products", function(req, res) {
     res.json(err);
       });
     });
-}
+
+  // PUT route for updating Products. We can get the updated Products data from req.body
+  app.put("/api/Productsupdate", function(req, res) {
+  
+  // Update takes in an object describing the properties we want to update, and
+  // we use where to describe which objects we want to update
+  db.Product.update({
+    productName: req.body.productName,
+    // productLine: req.body.productLine,
+    // productVendor: req.body.productVendor,
+    productDescription: req.body.productDescription,
+    quantityinStock: req.body.quantityinStock,
+    // wholesalePrice: req.body.wholesalePrice,
+    msrp: req.body.msrp 
+  }, {
+    where: {
+      id: req.body.id
+    }
+  }).then(function(dbProducts) {
+    res.json(dbProducts);
+  })
+  .catch(function(err) {
+  
+    res.json(err);
+      });
+    });
+  }
