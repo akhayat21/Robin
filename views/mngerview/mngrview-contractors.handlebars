@@ -52,8 +52,41 @@
   </div>
   <div class="col-2">
     <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addcontractor">Add Contractor</button></p>
+    <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editcontractor">Edit Contractor</button></p>
     <p><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#removecontractor">Remove Contractor</button></p>
   </div>
+</div>
+<div class="modal fade" id="addcontractor" tabindex="-1" role="dialog" aria-labelledby="addcontractor" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="contractorname">Contractor Name</label>
+                        <input type="contractorname" class="form-control" id="contractorname">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal fade" id="addcontractor" tabindex="-1" role="dialog" aria-labelledby="addcontractor" aria-hidden="true">
     <div class="modal-dialog" role="document">
