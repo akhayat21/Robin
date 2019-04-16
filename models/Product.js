@@ -9,21 +9,21 @@ module.exports = function(sequelize, DataTypes) {
           len: [1,200]
         }
       },
-      productLine: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,200]
-        }
-      },
+      // productLine: {
+      //   type: DataTypes.STRING,
+      //   allowNull: false,
+      //   validate: {
+      //     len: [1,200]
+      //   }
+      // },
       // This is for us to know the type of ventor that is using or giving the product.
-      productVendor: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,200]
-        }
-      },
+      // productVendor: {
+      //   type: DataTypes.STRING,
+      //   allowNull: false,
+      //   validate: {
+      //     len: [1,200]
+      //   }
+      // },
       // This is to store a brief description of the product usage and special information.
       productDescription: {
         type: DataTypes.STRING,
@@ -40,13 +40,13 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
       // We want to store the whole sale price of the product for us to track profit and other financial information.
-      wholesalePrice: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [1,200]
-        }
-      }, // This is the manufacturer sales retail price for us to use in financial information.
+      // wholesalePrice: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   validate: {
+      //     len: [1,200]
+      //   }
+      // }, // This is the manufacturer sales retail price for us to use in financial information.
       msrp: {
         type: DataTypes.INTEGER,
         allowNull: false,
