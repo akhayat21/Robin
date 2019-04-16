@@ -76,6 +76,7 @@ app.get("/manager/products", function(req, res) {
   app.get("/signup", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
+     // console.log(req.user)
       res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
@@ -87,7 +88,7 @@ app.get("/manager/products", function(req, res) {
       res.redirect("/members");
     }
     res.render("login")
-    // res.sendFile(path.join(__dirname, "../public/login.html"));
+    //res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
