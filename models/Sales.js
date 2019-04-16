@@ -32,10 +32,10 @@ module.exports = function(sequelize, DataTypes) {
 
       transactionID: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1,200]
-        }
+          allowNull: false,
+          validate: {
+            len: [1,200]
+          }
       }   
     });
     return Sales;
