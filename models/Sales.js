@@ -23,7 +23,6 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
         // created a pId for us to track information and also to eventually associate productId with other databases.
-
     });
     return Sales;
   };

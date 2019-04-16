@@ -11,8 +11,7 @@ module.exports = function(sequelize, DataTypes) {
              len: [1,200]
            }
          },
-      
-         
+
          urgency: {  // This is to check the level of urgency.
            type: DataTypes.TEXT,
            allowNull: false,
