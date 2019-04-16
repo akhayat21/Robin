@@ -15,7 +15,7 @@ module.exports = {
         startDay: "2019-04-01 08:00:00",
         adminAccess: 1,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       {
         firstName: "Jake",
@@ -29,7 +29,7 @@ module.exports = {
         startDay: "2019-06-01 08:15:00",
         adminAccess: 1,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
       }
     ], {});
     /*
@@ -55,4 +55,6 @@ module.exports = {
       return queryInterface.bulkDelete('People', null, {});
     */
   }
+  
 };
+
