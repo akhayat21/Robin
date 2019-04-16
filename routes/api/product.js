@@ -19,15 +19,15 @@ app.get("api/Products", function(req, res) {
 })
   
   //POST route for saving a new Product
-  app.post("api/Products", function(req, res) {
-  
+  app.post("/api/Products", function(req, res) {
+    console.log(req.body)
     db.Product.create({
       productName: req.body.productName,
-      productLine: req.body.productLine,
-      productVendor: req.body.productVendor,
+      // productLine: req.body.productLine,
+      // productVendor: req.body.productVendor,
       productDescription: req.body.productDescription,
       quantityinStock: req.body.quantityinStock,
-      wholesalePrice: req.body.wholesalePrice,
+      // wholesalePrice: req.body.wholesalePrice,
       msrp: req.body.msrp    
     }).then(function(dbProducts) {
       // We have access to the new Products as an argument inside of the callback function
