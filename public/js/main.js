@@ -142,4 +142,31 @@ $.ajax("/api/Products/" + id, {
 })
 });
 
+//=======================================================================================================================
+//=======================================================================================================================
+//=======================================================================================================================
 
+// onclick functions for contractor view
+
+
+$("#submitaddcontractor").on("click", function() {
+  event.preventDefault()
+var id = $("#productidelete").val();
+$.ajax("/api/Products/" + id, {
+  type: "DELETE"
+})
+});
+$("#submiteditcontractor").on("click", function() {
+  event.preventDefault()
+var id = $("#productidelete").val();
+$.ajax("/api/Products/" + id, {
+  type: "DELETE"
+})
+});
+$("#submitdeletecontractor").on("click", function() {
+  event.preventDefault()
+var id = $("#productidelete").val();
+$.ajax("/api/Products/" + id, {
+  type: "DELETE"
+})
+});
