@@ -16,12 +16,12 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-/* #features-card { */
-    /* width: 50%; */
-    /* position: fixed; or absolute */
-  /* top: 10%;
-  left: 25% */
-/* } */
+#features-card {
+  width:50%;
+  margin-top:10px;
+  margin-left: 320px;
+}
+
 .wrapper {
   margin-left:  20px; /* 1 */
 
