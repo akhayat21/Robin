@@ -32,7 +32,7 @@ app.get("/features", function(req, res) {
   res.render("./homepage/features");
 });
 app.get("/contact", function(req, res) {
-  res.render("/homepage/contact");
+  res.render("./homepage/contact");
 });
 app.get("/manager/products", function(req, res) {
     res.render("./mngerview/mngrview-products");
