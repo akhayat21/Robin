@@ -33,7 +33,8 @@ require("./routes/api/sales.js")(app);
 require("./routes/api/geomaps.js")(app);
 
 app.get('/', function (req, res) {
-  res.render('./layouts/main');
+  console.log('in main');
+  res.render('index');
 });
 
 // Syncing our database and logging a message to the user upon success
