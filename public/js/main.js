@@ -1,5 +1,26 @@
-// on click for manager/products page
+var ran = false;
+$(document).ready(function() {
+    if(!ran){
+        $.ajax("/api/Products", {
+            type: "GET",
+            }).then(function(resp) {
+                console.log(resp)
+                ran = true;
+                for(i=0; i<resp.length; i++){
+                    var tr = "<tr>";
+                    tr += '<th scope="row">' + resp[i].id + '</th>';
+                    tr += '<td>' + resp[i].productName + '</td>';
+                    tr += '<td>' + resp[i].quantityinStock + '</td>';
+                    tr += '<td>' + resp[i].msrp + '</td>';
+                    tr += "</tr>"
+                    $("#productstable").append(tr)
+                }
+            });
+    }
+});
 
+
+// on click for manager/products page
 //add a product button
 $("#submitaddproduct").on("click", function() {
     event.preventDefault()
@@ -69,3 +90,13 @@ $("#submitdeleteproduct").on("click", function() {
     type: "DELETE"
   })
 });
+
+//=======================================================================================================================
+//=======================================================================================================================
+//=======================================================================================================================
+
+
+// onclick functions for orders 
+
+
+

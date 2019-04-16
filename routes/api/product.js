@@ -1,9 +1,10 @@
 var db = require("../../models");
 module.exports = function(app) {
 //GET route for getting all the Products
-app.get("api/Products", function(req, res) {
+app.get("/api/Products", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.Product.findAll({}).then(function(dbProducts) {
+      console.log(dbProducts)
       // We have access to the Products as an argument inside of the callback function
       res.json(dbProducts);
     });
