@@ -77,15 +77,17 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Contractors.associate = function (models) {
- // contractors should belong to an user
-    // A contractors can't be created without a user due to the foreign key constraint
-    Contractors.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+
+  // Contractors.associate = function (models) {
+  //   // contractors should belong to an user
+  //      // A contractors can't be created without a user due to the foreign key constraint
+  //      Contractors.belongsTo(models.User, {
+  //        foreignKey: {
+  //          allowNull: false
+  //        }
+  //      });  
+  //     };
+
   return Contractors;
 };
 
