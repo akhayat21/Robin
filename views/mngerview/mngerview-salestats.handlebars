@@ -23,9 +23,9 @@
             <thead>
                 <tr>
                     <th scope="col">Sale ID</th>
-                    <th scope="col">Client Name</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Client ID</th>
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Transaction ID</th>
                 </tr>
             </thead>
             <tbody id="salesbody">
@@ -69,16 +69,20 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="clientname">Client Name</label>
-                        <input type="clientname" class="form-control" id="clientname">
+                        <label for="saleid">Sale ID</label>
+                        <input type="clientname" class="form-control" id="saleid">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientid">Client ID</label>
+                        <input type="productid" class="form-control" id="saleid">
                     </div>
                     <div class="form-group">
                         <label for="productid">Product ID</label>
                         <input type="productid" class="form-control" id="productid">
                     </div>
                     <div class="form-group">
-                        <label for="salenote">Note</label>
-                        <textarea class="form-control" id="salenote" rows="3"></textarea>
+                        <label for="productid">Transaction ID</label>
+                        <input type="productid" class="form-control" id="productid">
                     </div>
                 </form>
             </div>
@@ -150,7 +154,25 @@
         </div>
     </div>
 </div>
-
 <script>
-
+    var ran = false;
+$(document).ready(function() {
+    if(!ran){
+        $.ajax("/api/Sales", {
+            type: "GET",
+            }).then(function(resp) {
+                console.log(resp)
+                ran = true;
+                for(i=0; i<resp.length; i++){
+                    var tr = "<tr>";
+                    tr += '<th scope="row">' + resp[i].salesId + '</th>';
+                    tr += '<td>' + resp[i].clientId + '</td>';
+                    tr += '<td>' + resp[i].productId + '</td>';
+                    tr += '<td>' + resp[i].transactionId + '</td>';
+                    tr += "</tr>"
+                    $("#productstable").append(tr)
+                }
+            });
+    }
+});
 </script>
