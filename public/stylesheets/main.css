@@ -22,3 +22,9 @@ form.login {
   top: 10%;
   left: 25%
 }
+
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
