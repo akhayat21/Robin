@@ -78,10 +78,12 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Contractors.associate = function (models) {
-    // Associating Contractors with user
-    // When an contractor is deleted, also delete any associated user
-    Contractors.hasMany(models.User, {
-      onDelete: "cascade"
+ // contractors should belong to an user
+    // A contractors can't be created without a user due to the foreign key constraint
+    Contractors.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
     });
   };
   return Contractors;

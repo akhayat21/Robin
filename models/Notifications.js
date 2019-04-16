@@ -11,13 +11,8 @@ module.exports = function(sequelize, DataTypes) {
              len: [1,200]
            }
          },
-         contractorId: { // The contractor notification.
-           type: DataTypes.INTEGER,
-           allowNull: false,
-           validate: {
-             len: [1,200]
-           }
-         },
+      
+         
          urgency: {  // This is to check the level of urgency.
            type: DataTypes.TEXT,
            allowNull: false,
