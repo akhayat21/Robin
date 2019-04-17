@@ -20,14 +20,14 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  User.associate = function (models) {
-  // Associating user with contractors
-      // When an user is deleted, also delete any associated contractor
-    User.hasMany(models.Contractors, {
-      onDelete: "cascade"
-    });
+  // User.associate = function (models) {
+  // // Associating user with contractors
+  //     // When an user is deleted, also delete any associated contractor
+  //   User.hasMany(models.Contractors, {
+  //     onDelete: "cascade"
+  //   });
 
-  };
+  // };
 
 
 

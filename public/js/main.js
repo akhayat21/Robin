@@ -115,31 +115,47 @@ $("#submitdeleteproduct").on("click", function() {
 //=======================================================================================================================
 //=======================================================================================================================
 //=======================================================================================================================
-
+ 
 // load table when 
 // onclick functions for orders 
 $("#submitaddorder").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
-  type: "DELETE"
+var cid = $("#clientid").val();
+var pid = $("#productid").val();
+var quan = $("#quantity").val();
+$.ajax("/api/Sales" + id, {
+  type: "POST",
+  data: {
+    ClientId: cid,
+    ProductId: pid,
+    quantity: quan
+  }
 })
 });
 
-$("#submitaddorder").on("click", function() {
+$("#submiteditorder").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
-  type: "DELETE"
+var sid = $("#saleid").val();
+var cid = $("#clientid").val();
+var pid = $("#productid").val();
+var quan = $("#quantity").val();
+$.ajax("/api/Sales" + id, {
+  type: "PUT",
+  data: {
+    id: sid,
+    ClientId: cid,
+    ProductId: pid,
+    quantity: quan
+  }
 })
 });
 
-$("#submitaddorder").on("click", function() {
+$("#submitremoveorder").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
-  type: "DELETE"
-})
+  var id = $("#saleid").val();
+$.ajax("/api/Sales/" + id, {
+    type: "DELETE"
+  })
 });
 
 //=======================================================================================================================
@@ -191,6 +207,15 @@ $.ajax("/api/Contractors", {
     lastName: lName,
     email: email,
     teamAssignment: teamass
+  }
+})
+
+$.ajax("/api/Users", {
+  type: "PUT",
+  data:{
+    id: id,
+    email: email,
+    password: password
   }
 })
 });
