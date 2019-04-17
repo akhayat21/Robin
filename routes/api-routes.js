@@ -35,6 +35,10 @@ module.exports = function(app) {
     req.logout();
     res.redirect("/");
   });
+  app.get("/manager/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
 
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
