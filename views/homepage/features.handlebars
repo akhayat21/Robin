@@ -1,3 +1,12 @@
+
+<style>
+body {
+  background-color: lightblue;
+} 
+</style>
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
     <a class="navbar-brand" href="#">Robin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -24,8 +33,9 @@
         </ul>
     </div>
 </nav>
-<div id="features-card">
-    <div class="card mb-3">
+<div class="container" style="border:1px solid #cecece;">
+        <div class="row">
+            <div class="col-10 col-md-6"><div class="card mb-3" style="margin-bottom:0px !important">
         <img src="images/door-to-door.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">What is Robin?</h5>
@@ -33,9 +43,79 @@
                 the field. It provides a manager overview of salesforce, products, clients and inventory. Robin
                 geolocates field agents to assure they are on the job and provides weather updates for the manager to
                 assure better project planning for businesses that are weather dependent. </p>
-            <p>Call us today at 1-800-867-5309 to discuss business solutions and we will provide pricing that aligns
+            <p>Robin is designed to scale to your service needs. Call us today at 1-800-867-5309 to discuss business solutions and we will provide pricing that aligns
                 with your business needs today. </p>
-            <p class="card-text"><small class="text-muted"></small></p>
+            <p class="card-text"><small class="text-muted">Call Today</small></p>
         </div>
-    </div>
+    </div></div>
+    <div class="col-8 col-md-6"><style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+ 
+    <div id="map"></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3q7ui7Eca-3JrT_FaO8mq2N6Ur0rdyXQ&callback=initMap">
+    </script>
+  </div>
+    
 </div>
+</div>
+</div>
+<div class="col-3">
+            <h1><!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5758713.js"></script>
+<!-- End of HubSpot Embed Code --></h1>
+        </div>
+    
