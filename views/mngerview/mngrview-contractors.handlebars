@@ -28,25 +28,7 @@
           <th scope="col">Total Sales</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>contractor Name</td>
-          <td>email@email.com</td>
-          <td>$3500</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>contractor Name</td>
-          <td>email@email.com</td>
-          <td>$4500</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>contractor Name</td>
-          <td>email@email.com</td>
-          <td>$2500</td>
-        </tr>
+      <tbody class="contractortable">
       </tbody>
     </table>
   </div>
@@ -68,8 +50,16 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="contractorname">Contractor Name</label>
-                        <input type="contractorname" class="form-control" id="contractorname">
+                        <label for="contractorfname">Contractor First Name</label>
+                        <input type="contractorfname" class="form-control" id="contractorfname">
+                    </div>
+                    <div class="form-group">
+                        <label for="contractorlname">Contractor Last Name</label>
+                        <input type="contractorlname" class="form-control" id="contractorlname">
+                    </div>
+                    <div class="form-group">
+                        <label for="teamass">Team Assignment</label>
+                        <input type="teamass" class="form-control" id="teamass">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -83,12 +73,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+                <button id="submitaddcontractor" type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="addcontractor" tabindex="-1" role="dialog" aria-labelledby="addcontractor" aria-hidden="true">
+<div class="modal fade" id="editcontractor" tabindex="-1" role="dialog" aria-labelledby="addcontractor" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -99,9 +89,21 @@
             </div>
             <div class="modal-body">
                 <form>
+                   <div class="form-group">
+                        <label for="contractorid">Contractor ID</label>
+                        <input type="contractorid" class="form-control" id="contractorid">
+                    </div>
+                   <div class="form-group">
+                        <label for="contractorfname">Contractor First Name</label>
+                        <input type="contractorfname" class="form-control" id="contractorfname">
+                    </div>
                     <div class="form-group">
-                        <label for="contractorname">Contractor Name</label>
-                        <input type="contractorname" class="form-control" id="contractorname">
+                        <label for="contractorlname">Contractor Last Name</label>
+                        <input type="contractorlname" class="form-control" id="contractorlname">
+                    </div>
+                    <div class="form-group">
+                        <label for="teamass">Team Assignment</label>
+                        <input type="teamass" class="form-control" id="teamass">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -115,7 +117,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+                <button id="submiteditcontractor" type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -139,7 +141,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="submitalert" type="button" class="btn btn-primary">Save changes</button>
+                <button id="submitdeletecontractor" type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -149,3 +151,26 @@
   <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5758713.js"></script>
 <!-- End of HubSpot Embed Code --></h1>
         </div>
+        <script>
+    var ran = false;
+$(document).ready(function() {
+    if(!ran){
+        $.ajax("/api/Contractors", {
+            type: "GET",
+            }).then(function(resp) {
+                console.log(resp)
+                ran = true;
+                for(i=0; i<resp.length; i++){
+                    var tr = "<tr>";
+                    tr += '<th scope="row">' + resp[i].id + '</th>';
+                    tr += '<td>' + resp[i].firstName, resp[i].lastName + '</td>';
+                    tr += '<td>' + resp[i].email + '</td>';
+                    tr += '<td>' + resp[i].totalSales + '</td>';
+                    tr += "</tr>"
+                    $("#contractortable").append(tr)
+                }
+            });
+    }
+});
+</script>
+

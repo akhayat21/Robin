@@ -17,6 +17,15 @@ app.get("/api/Contractors", function(req, res) {
         res.json(dbContractors);
     })
 })
+
+  //Route for getting contractors info by email
+  app.get("/api/Contractors/:email", function(req, res) {
+    db.Contractors.findOne({where: {
+      email: req.params.email
+    }}).then(function(dbContractors) {
+        res.json(dbContractors);
+    })
+})
   
   //POST route for saving a new contractors
   app.post("/api/Contractors", function(req, res) {
@@ -27,12 +36,12 @@ app.get("/api/Contractors", function(req, res) {
     lastName: req.body.lastName,
     email: req.body.email,
     teamAssignment: req.body.teamAssignment,
-    Weekly_hours: req.body.Weekly_hours,
-    Total_sales: req.body.Total_sales,
-    clockIn: req.body.clockIn,
-    clockOut: req.body.clockOut,
-    startDay: req.body.startDay,
-    adminAccess: req.body.adminAccess
+    //Weekly_hours: req.body.Weekly_hours,
+    //Total_sales: req.body.Total_sales,
+    //clockIn: req.body.clockIn,
+    //clockOut: req.body.clockOut,
+    //startDay: req.body.startDay,
+    //adminAccess: req.body.adminAccess
   }).then(function(dbContractors) {
         res.json(dbContractors);
   })

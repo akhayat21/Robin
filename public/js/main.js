@@ -115,31 +115,114 @@ $("#submitdeleteproduct").on("click", function() {
 //=======================================================================================================================
 //=======================================================================================================================
 //=======================================================================================================================
-
+ 
 // load table when 
 // onclick functions for orders 
 $("#submitaddorder").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
-  type: "DELETE"
+var cid = $("#clientid").val();
+var pid = $("#productid").val();
+var quan = $("#quantity").val();
+$.ajax("/api/Sales" + id, {
+  type: "POST",
+  data: {
+    ClientId: cid,
+    ProductId: pid,
+    quantity: quan
+  }
 })
 });
 
-$("#submitaddorder").on("click", function() {
+$("#submiteditorder").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
-  type: "DELETE"
+var sid = $("#saleid").val();
+var cid = $("#clientid").val();
+var pid = $("#productid").val();
+var quan = $("#quantity").val();
+$.ajax("/api/Sales" + id, {
+  type: "PUT",
+  data: {
+    id: sid,
+    ClientId: cid,
+    ProductId: pid,
+    quantity: quan
+  }
 })
 });
 
-$("#submitaddorder").on("click", function() {
+$("#submitremoveorder").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
+  var id = $("#saleid").val();
+$.ajax("/api/Sales/" + id, {
+    type: "DELETE"
+  })
+});
+
+//=======================================================================================================================
+//=======================================================================================================================
+//=======================================================================================================================
+
+// onclick functions for contractor view
+
+
+$("#submitaddcontractor").on("click", function() {
+  event.preventDefault()
+var fName = $("#contractorfname").val();
+var lName = $("#contractorlname").val();
+var teamass = $("#teamass").val();
+var email = $("#email").val();
+var password = $("#password").val();
+$.ajax("/api/Contractors", {
+  type: "POST",
+  data: {
+    firstName: fName,
+    lastName: lName,
+    email: email,
+    teamAssignment: teamass
+  }
+}).then(function(){
+  $.ajax("/api/signup", {
+    type: "POST",
+    data: {
+      email: email,
+      password: password
+    }
+  })
+})
+
+});
+
+$("#submiteditcontractor").on("click", function() {
+  event.preventDefault()
+  var fName = $("#contractorfname").val();
+  var lName = $("#contractorlname").val();
+  var teamass = $("#teamass").val();
+  var email = $("#email").val();
+  var id = $("#contractorid").val();
+$.ajax("/api/Contractors", {
+  type: "PUT",
+  data:{
+    id: id,
+    firstName: fName,
+    lastName: lName,
+    email: email,
+    teamAssignment: teamass
+  }
+})
+
+$.ajax("/api/Users", {
+  type: "PUT",
+  data:{
+    id: id,
+    email: email,
+    password: password
+  }
+})
+});
+$("#submitdeletecontractor").on("click", function() {
+  event.preventDefault()
+  var id = $("#contractorid").val();
+$.ajax("/api/Contractors/" + id, {
   type: "DELETE"
 })
 });
-
-

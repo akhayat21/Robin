@@ -22,6 +22,13 @@ module.exports = function(sequelize, DataTypes) {
           len: [1,200]
         }
       },
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          len: [1,200]
+        }
+      },
         // created a pId for us to track information and also to eventually associate productId with other databases.
     });
     return Sales;

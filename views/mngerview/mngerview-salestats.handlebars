@@ -25,28 +25,11 @@
                     <th scope="col">Sale ID</th>
                     <th scope="col">Client ID</th>
                     <th scope="col">Product ID</th>
-                    <th scope="col">Transaction ID</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Date</th>
                 </tr>
             </thead>
             <tbody id="salesbody">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Client Name</td>
-                    <td>Product Name</td>
-                    <td>$300</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Client Name</td>
-                    <td>Product Name</td>
-                    <td>$300</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Client Name</td>
-                    <td>Product Name</td>
-                    <td>$300</td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -69,20 +52,16 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="saleid">Sale ID</label>
-                        <input type="clientname" class="form-control" id="saleid">
-                    </div>
-                    <div class="form-group">
                         <label for="clientid">Client ID</label>
-                        <input type="productid" class="form-control" id="saleid">
+                        <input type="productid" class="form-control" id="clientid">
                     </div>
                     <div class="form-group">
                         <label for="productid">Product ID</label>
                         <input type="productid" class="form-control" id="productid">
                     </div>
                     <div class="form-group">
-                        <label for="productid">Transaction ID</label>
-                        <input type="productid" class="form-control" id="productid">
+                        <label for="quantity">Quantity</label>
+                        <input type="productid" class="form-control" id="quantity">
                     </div>
                 </form>
             </div>
@@ -94,7 +73,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="addorder" tabindex="-1" role="dialog" aria-labelledby="addorder" aria-hidden="true">
+<div class="modal fade" id="editorder" tabindex="-1" role="dialog" aria-labelledby="addorder" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -106,26 +85,26 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="clientname">Order ID</label>
-                        <input type="clientname" class="form-control" id="clientname">
+                        <label for="saleid">Sale ID</label>
+                        <input type="productid" class="form-control" id="saleid">
                     </div>
                     <div class="form-group">
-                        <label for="clientname">Client Name</label>
-                        <input type="clientname" class="form-control" id="clientname">
+                        <label for="clientid">Client ID</label>
+                        <input type="productid" class="form-control" id="clientid">
                     </div>
                     <div class="form-group">
                         <label for="productid">Product ID</label>
                         <input type="productid" class="form-control" id="productid">
                     </div>
                     <div class="form-group">
-                        <label for="salenote">Note</label>
-                        <textarea class="form-control" id="salenote" rows="3"></textarea>
+                        <label for="quantity">Quantity</label>
+                        <input type="productid" class="form-control" id="quantity">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="editorder" type="button" class="btn btn-primary">Save changes</button>
+                <button id="submiteditorder" type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -142,14 +121,14 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="orderid">Order ID</label>
-                        <input type="number" class="form-control" id="orderid">
+                        <label for="saleid">Sale ID</label>
+                        <input type="number" class="form-control" id="saleid">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="removeorder" type="button" class="btn btn-primary">Save changes</button>
+                <button id="submitremoveorder" type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -165,10 +144,11 @@ $(document).ready(function() {
                 ran = true;
                 for(i=0; i<resp.length; i++){
                     var tr = "<tr>";
-                    tr += '<th scope="row">' + resp[i].salesId + '</th>';
+                    tr += '<th scope="row">' + resp[i].Id + '</th>';
                     tr += '<td>' + resp[i].clientId + '</td>';
                     tr += '<td>' + resp[i].productId + '</td>';
-                    tr += '<td>' + resp[i].transactionId + '</td>';
+                    tr += '<td>' + resp[i].quantity + '</td>';
+                    tr += '<td>' + resp[i].createdAt + '</td>';
                     tr += "</tr>"
                     $("#productstable").append(tr)
                 }
