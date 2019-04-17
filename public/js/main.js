@@ -151,22 +151,53 @@ $.ajax("/api/Products/" + id, {
 
 $("#submitaddcontractor").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
-  type: "DELETE"
+var fName = $("#contractorfname").val();
+var lName = $("#contractorlname").val();
+var teamass = $("#teamass").val();
+var email = $("#email").val();
+var password = $("#password").val();
+$.ajax("/api/Contractors", {
+  type: "POST",
+  data: {
+    firstName: fName,
+    lastName: lName,
+    email: email,
+    teamAssignment: teamass
+  }
+}).then(function(){
+  $.ajax("/api/signup", {
+    type: "POST",
+    data: {
+      email: email,
+      password: password
+    }
+  })
 })
+
 });
+
 $("#submiteditcontractor").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
-  type: "DELETE"
+  var fName = $("#contractorfname").val();
+  var lName = $("#contractorlname").val();
+  var teamass = $("#teamass").val();
+  var email = $("#email").val();
+  var id = $("#contractorid").val();
+$.ajax("/api/Contractors", {
+  type: "PUT",
+  data:{
+    id: id,
+    firstName: fName,
+    lastName: lName,
+    email: email,
+    teamAssignment: teamass
+  }
 })
 });
 $("#submitdeletecontractor").on("click", function() {
   event.preventDefault()
-var id = $("#productidelete").val();
-$.ajax("/api/Products/" + id, {
+  var id = $("#contractorid").val();
+$.ajax("/api/Contractors/" + id, {
   type: "DELETE"
 })
 });

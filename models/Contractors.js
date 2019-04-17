@@ -28,6 +28,7 @@ module.exports = function (sequelize, DataTypes) {
     teamAssignment: {
       type: DataTypes.STRING,
       allowNull: false,
+      default: "team",
       validate: {
         len: [1, 200]
       }
@@ -36,6 +37,7 @@ module.exports = function (sequelize, DataTypes) {
     weeklyHours: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      default: 0,
       validate: {
         len: [1, 100]
       },
@@ -44,6 +46,7 @@ module.exports = function (sequelize, DataTypes) {
     totalSales: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      default: 0,
       validate: {
         len: [1, 100]
       },
@@ -52,6 +55,7 @@ module.exports = function (sequelize, DataTypes) {
     clockIn: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      default: 0,
       validate: {
         len: [1, 100]
       },
@@ -59,6 +63,7 @@ module.exports = function (sequelize, DataTypes) {
     clockOut: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      default: 0,
       validate: {
         len: [1, 100]
       },
@@ -66,6 +71,7 @@ module.exports = function (sequelize, DataTypes) {
     startDay: {
       type: DataTypes.DATE,
       allowNull: false,
+      default: "2019-04-17",
       validate: {
         len: [1, 100]
       },
@@ -74,6 +80,7 @@ module.exports = function (sequelize, DataTypes) {
     adminAccess: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+      default: 0
     }
   });
 
