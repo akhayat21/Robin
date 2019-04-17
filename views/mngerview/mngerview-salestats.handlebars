@@ -25,28 +25,11 @@
                     <th scope="col">Sale ID</th>
                     <th scope="col">Client ID</th>
                     <th scope="col">Product ID</th>
-                    <th scope="col">Transaction ID</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Date</th>
                 </tr>
             </thead>
             <tbody id="salesbody">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Client Name</td>
-                    <td>Product Name</td>
-                    <td>$300</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Client Name</td>
-                    <td>Product Name</td>
-                    <td>$300</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Client Name</td>
-                    <td>Product Name</td>
-                    <td>$300</td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -90,7 +73,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="addorder" tabindex="-1" role="dialog" aria-labelledby="addorder" aria-hidden="true">
+<div class="modal fade" id="editorder" tabindex="-1" role="dialog" aria-labelledby="addorder" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -161,10 +144,10 @@ $(document).ready(function() {
                 ran = true;
                 for(i=0; i<resp.length; i++){
                     var tr = "<tr>";
-                    tr += '<th scope="row">' + resp[i].salesId + '</th>';
+                    tr += '<th scope="row">' + resp[i].Id + '</th>';
                     tr += '<td>' + resp[i].clientId + '</td>';
                     tr += '<td>' + resp[i].productId + '</td>';
-                    tr += '<td>' + resp[i].transactionId + '</td>';
+                    tr += '<td>' + resp[i].quantity + '</td>';
                     tr += "</tr>"
                     $("#productstable").append(tr)
                 }

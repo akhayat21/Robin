@@ -28,25 +28,7 @@
           <th scope="col">Total Sales</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>contractor Name</td>
-          <td>email@email.com</td>
-          <td>$3500</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>contractor Name</td>
-          <td>email@email.com</td>
-          <td>$4500</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>contractor Name</td>
-          <td>email@email.com</td>
-          <td>$2500</td>
-        </tr>
+      <tbody class="contractortable">
       </tbody>
     </table>
   </div>
@@ -164,3 +146,25 @@
         </div>
     </div>
 </div>
+<script>
+    var ran = false;
+$(document).ready(function() {
+    if(!ran){
+        $.ajax("/api/Contractors", {
+            type: "GET",
+            }).then(function(resp) {
+                console.log(resp)
+                ran = true;
+                for(i=0; i<resp.length; i++){
+                    var tr = "<tr>";
+                    tr += '<th scope="row">' + resp[i].id + '</th>';
+                    tr += '<td>' + resp[i].firstName, resp[i].lastName + '</td>';
+                    tr += '<td>' + resp[i].email + '</td>';
+                    tr += '<td>' + resp[i].totalSales + '</td>';
+                    tr += "</tr>"
+                    $("#contractortable").append(tr)
+                }
+            });
+    }
+});
+</script>
