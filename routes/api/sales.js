@@ -23,8 +23,8 @@
       // insert into our table. In this case we just we pass in an object with a text
       // and complete property (req.body)
       db.Sales.create({
-        ClientId: req.body.ClientId,
-        ProductId: req.body.ProductId,
+        clientid: req.body.clientid,
+        productid: req.body.productid,
         quantity: req.body.quantity
       }).then(function(dbSales) {
         res.json(dbSales);
@@ -49,8 +49,8 @@
   app.put("/api/Sales", function(req, res) {
     //Update takes in an object describing the properties we want to update and uses where to describe which objects we want to update
     db.Sales.update({
-      ClientId: req.body.ClientId,
-      ProductId: req.body.ProductId,
+      clientid: req.body.clientid,
+      productid: req.body.productid,
       quantity: req.body.quantity
     }, {
       where: {

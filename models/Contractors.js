@@ -4,21 +4,21 @@ module.exports = function (sequelize, DataTypes) {
   var Contractors = sequelize.define("Contractors", {
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1, 200]
       }
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: [1, 200]
       }
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: true,
       validate: {
         isEmail: true
@@ -27,8 +27,8 @@ module.exports = function (sequelize, DataTypes) {
     // this is to track the assignments for the employee teams.
     teamAssignment: {
       type: DataTypes.STRING,
-      allowNull: false,
-      default: "team",
+      allowNull: true,
+      defaultValue: "team",
       validate: {
         len: [1, 200]
       }
@@ -36,8 +36,8 @@ module.exports = function (sequelize, DataTypes) {
     // This is to track the employee weekly hours that  is gather formt the clock in and clock out data.
     weeklyHours: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      default: 0,
+      allowNull: true,
+      defaultValue: 0,
       validate: {
         len: [1, 100]
       },
@@ -45,8 +45,8 @@ module.exports = function (sequelize, DataTypes) {
     // This is to track the total sales of the employee.
     totalSales: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      default: 0,
+      allowNull: true,
+      defaultValue: 0,
       validate: {
         len: [1, 100]
       },
@@ -54,24 +54,24 @@ module.exports = function (sequelize, DataTypes) {
     // This clock in and out is  to track the employee hours so that we could add the total hours of the employee.
     clockIn: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      default: 0,
+      allowNull: true,
+      defaultValue: 0,
       validate: {
         len: [1, 100]
       },
     },
     clockOut: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      default: 0,
+      allowNull: true,
+      defaultValue: 0,
       validate: {
         len: [1, 100]
       },
     },// This is to have a database information of the employeee start day with the company.
     startDay: {
       type: DataTypes.DATE,
-      allowNull: false,
-      default: "2019-04-17",
+      allowNull: true,
+      defaultValue: "2019-04-17",
       validate: {
         len: [1, 100]
       },
@@ -79,8 +79,8 @@ module.exports = function (sequelize, DataTypes) {
     // This for the user to have access to our features.
     adminAccess: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
-      default: 0
+      allowNull: true,
+      defaultValue: 0
     }
   });
 

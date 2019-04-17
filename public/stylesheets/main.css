@@ -34,3 +34,16 @@ form.login {
 body {
   background-color: lightblue;
 }
+
+.tables{
+  padding: 4%;
+}
+
+.btn{
+  width: 100%;
+}
+
+.innertable{
+  background-color: white;
+  border-radius: 10px;
+}

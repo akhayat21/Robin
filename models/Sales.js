@@ -6,25 +6,25 @@ module.exports = function(sequelize, DataTypes) {
       
         // created a clientId for us to track client's information and also to eventually associate clientId with other databases.
 
-      clientId: {
+      clientid: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         validate: {
           len: [1,100]
         }
       },
         // created a productId for us to track information and also to eventually associate productId with other databases.
       
-      productId: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      productid: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
         validate: {
           len: [1,200]
         }
       },
       quantity: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         validate: {
           len: [1,200]
         }

@@ -17,9 +17,9 @@
         <a class="nav-item nav-link" href="logout">Logout</a>
     </div>
 </nav>
-<div class="row">
+<div class="row tables">
   <div class="col-10">
-    <table class="table">
+    <table class="table innertable">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -50,15 +50,15 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="contractorfname">Contractor First Name</label>
+                        <label for="contractorfname1">Contractor First Name</label>
                         <input type="contractorfname" class="form-control" id="contractorfname">
                     </div>
                     <div class="form-group">
-                        <label for="contractorlname">Contractor Last Name</label>
+                        <label for="contractorlname1">Contractor Last Name</label>
                         <input type="contractorlname" class="form-control" id="contractorlname">
                     </div>
                     <div class="form-group">
-                        <label for="teamass">Team Assignment</label>
+                        <label for="teamass1">Team Assignment</label>
                         <input type="teamass" class="form-control" id="teamass">
                     </div>
                     <div class="form-group">
@@ -91,27 +91,27 @@
                 <form>
                    <div class="form-group">
                         <label for="contractorid">Contractor ID</label>
-                        <input type="contractorid" class="form-control" id="contractorid">
+                        <input type="contractorid" class="form-control" id="contractorid2">
                     </div>
                    <div class="form-group">
                         <label for="contractorfname">Contractor First Name</label>
-                        <input type="contractorfname" class="form-control" id="contractorfname">
+                        <input type="contractorfname" class="form-control" id="contractorfname2">
                     </div>
                     <div class="form-group">
                         <label for="contractorlname">Contractor Last Name</label>
-                        <input type="contractorlname" class="form-control" id="contractorlname">
+                        <input type="contractorlname" class="form-control" id="contractorlname2">
                     </div>
                     <div class="form-group">
                         <label for="teamass">Team Assignment</label>
-                        <input type="teamass" class="form-control" id="teamass">
+                        <input type="teamass" class="form-control" id="teamass2">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email2 ">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" id="password2">
                     </div>
                 </form>
             </div>
@@ -135,7 +135,7 @@
                 <form>
                     <div class="form-group">
                         <label for="contractorid">Contractor ID</label>
-                        <input type="contractorid" class="form-control" id="contractorid">
+                        <input type="contractorid" class="form-control" id="contractorid3">
                     </div>
                 </form>
             </div>
@@ -167,7 +167,7 @@ $(document).ready(function() {
                     tr += '<td>' + resp[i].email + '</td>';
                     tr += '<td>' + resp[i].totalSales + '</td>';
                     tr += "</tr>"
-                    $("#contractortable").append(tr)
+                    $(".contractortable").append(tr)
                 }
             });
     }

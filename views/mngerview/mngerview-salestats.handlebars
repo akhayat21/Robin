@@ -17,9 +17,9 @@
         <a class="nav-item nav-link" href="logout">Logout</a>
     </div>
 </nav>
-<div class="row">
+<div class="row tables">
     <div class="col-10">
-        <table class="table">
+        <table class="table innertable">
             <thead>
                 <tr>
                     <th scope="col">Sale ID</th>
@@ -53,7 +53,7 @@
                 <form>
                     <div class="form-group">
                         <label for="clientid">Client ID</label>
-                        <input type="productid" class="form-control" id="clientid">
+                        <input type="clientid" class="form-control" id="clientid">
                     </div>
                     <div class="form-group">
                         <label for="productid">Product ID</label>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <input type="productid" class="form-control" id="quantity">
+                        <input type="quantity" class="form-control" id="quantity">
                     </div>
                 </form>
             </div>
@@ -86,19 +86,19 @@
                 <form>
                     <div class="form-group">
                         <label for="saleid">Sale ID</label>
-                        <input type="productid" class="form-control" id="saleid">
+                        <input type="number" class="form-control" id="saleid">
                     </div>
                     <div class="form-group">
                         <label for="clientid">Client ID</label>
-                        <input type="productid" class="form-control" id="clientid">
+                        <input type="number" class="form-control" id="clientid2">
                     </div>
                     <div class="form-group">
                         <label for="productid">Product ID</label>
-                        <input type="productid" class="form-control" id="productid">
+                        <input type="number" class="form-control" id="productid2">
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantity</label>
-                        <input type="productid" class="form-control" id="quantity">
+                        <input type="number" class="form-control" id="quantity2">
                     </div>
                 </form>
             </div>
@@ -113,7 +113,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Send an Alert</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete an existing Order</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -121,18 +121,23 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="saleid">Sale ID</label>
-                        <input type="number" class="form-control" id="saleid">
+                        <label for="saleid3">Sale ID</label>
+                        <input type="number" class="form-control" id="saleid3">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="submitremoveorder" type="button" class="btn btn-primary">Save changes</button>
+                <button id="submitremoveorder" type="button" class="btn btn-danger">Delete</button>
             </div>
         </div>
     </div>
 </div>
+<div class="col-3">
+            <h1><!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5758713.js"></script>
+<!-- End of HubSpot Embed Code --></h1>
+        </div>
 <script>
     var ran = false;
 $(document).ready(function() {
@@ -144,20 +149,15 @@ $(document).ready(function() {
                 ran = true;
                 for(i=0; i<resp.length; i++){
                     var tr = "<tr>";
-                    tr += '<th scope="row">' + resp[i].Id + '</th>';
-                    tr += '<td>' + resp[i].clientId + '</td>';
-                    tr += '<td>' + resp[i].productId + '</td>';
+                    tr += '<th scope="row">' + resp[i].id + '</th>';
+                    tr += '<td>' + resp[i].clientid + '</td>';
+                    tr += '<td>' + resp[i].productid + '</td>';
                     tr += '<td>' + resp[i].quantity + '</td>';
                     tr += '<td>' + resp[i].createdAt + '</td>';
                     tr += "</tr>"
-                    $("#productstable").append(tr)
+                    $("#salesbody").append(tr)
                 }
             });
     }
 });
 </script>
-<div class="col-3">
-            <h1><!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5758713.js"></script>
-<!-- End of HubSpot Embed Code --></h1>
-        </div>

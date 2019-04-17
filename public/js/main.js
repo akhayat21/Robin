@@ -109,7 +109,11 @@ $("#submitdeleteproduct").on("click", function() {
   var id = $("#productidelete").val();
   $.ajax("/api/Products/" + id, {
     type: "DELETE"
-  })
+  }).then(
+    function() {
+      location.reload();
+    }
+  );
 });
 
 //=======================================================================================================================
@@ -123,39 +127,51 @@ $("#submitaddorder").on("click", function() {
 var cid = $("#clientid").val();
 var pid = $("#productid").val();
 var quan = $("#quantity").val();
-$.ajax("/api/Sales" + id, {
+
+$.ajax("/api/Sales", {
   type: "POST",
   data: {
-    ClientId: cid,
-    ProductId: pid,
+    clientid: cid,
+    productid: pid,
     quantity: quan
   }
-})
+}).then(
+  function() {
+    location.reload();
+  }
+);
 });
 
 $("#submiteditorder").on("click", function() {
   event.preventDefault()
-var sid = $("#saleid").val();
-var cid = $("#clientid").val();
-var pid = $("#productid").val();
-var quan = $("#quantity").val();
-$.ajax("/api/Sales" + id, {
+var id = $("#saleid").val();
+var cid = $("#clientid2").val();
+var pid = $("#productid2").val();
+var quan = $("#quantity2").val();
+$.ajax("/api/Sales", {
   type: "PUT",
   data: {
-    id: sid,
-    ClientId: cid,
-    ProductId: pid,
+    id: id,
+    clientid: cid,
+    productid: pid,
     quantity: quan
   }
-})
+}).then(
+  function() {
+    location.reload();
+  }
+);
 });
 
 $("#submitremoveorder").on("click", function() {
   event.preventDefault()
-  var id = $("#saleid").val();
+  var id = $("#saleid3").val();
 $.ajax("/api/Sales/" + id, {
     type: "DELETE"
-  })
+  }).then(function() {
+      location.reload();
+    }
+  );
 });
 
 //=======================================================================================================================
@@ -188,19 +204,20 @@ $.ajax("/api/Contractors", {
       password: password
     }
   })
+  location.reload();
 })
 
 });
 
 $("#submiteditcontractor").on("click", function() {
   event.preventDefault()
-  var fName = $("#contractorfname").val();
-  var lName = $("#contractorlname").val();
-  var teamass = $("#teamass").val();
-  var email = $("#email").val();
+  var fName = $("#contractorfname2").val();
+  var lName = $("#contractorlname2").val();
+  var teamass = $("#teamass2").val();
+  var email = $("#email2").val();
   var id = $("#contractorid").val();
 $.ajax("/api/Contractors", {
-  type: "PUT",
+  type: "POST",
   data:{
     id: id,
     firstName: fName,
@@ -208,21 +225,26 @@ $.ajax("/api/Contractors", {
     email: email,
     teamAssignment: teamass
   }
-})
+}).then(function(){
+  $.ajax("/api/signup", {
+    type: "POST",
+    data:{
+      email: email,
+      password: password
+    }
+  })
+});
 
-$.ajax("/api/Users", {
-  type: "PUT",
-  data:{
-    id: id,
-    email: email,
-    password: password
-  }
-})
+
 });
 $("#submitdeletecontractor").on("click", function() {
   event.preventDefault()
-  var id = $("#contractorid").val();
+  var id = $("#contractorid3").val();
 $.ajax("/api/Contractors/" + id, {
   type: "DELETE"
-})
+}).then(
+  function() {
+    location.reload();
+  }
+);
 });
